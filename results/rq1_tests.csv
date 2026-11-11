@@ -1,0 +1,4 @@
+model,block,odds_ratio,p
+rule_attentive,dashboard,0.0,0.0
+rule_attentive,naive,6.552552844767436,2.202512109916078e-05
+rule_attentive,told,60.2836474737378,1.1822114369004768e-06

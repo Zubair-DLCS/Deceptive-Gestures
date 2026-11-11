@@ -1,0 +1,19 @@
+{
+ "study1_students": 40,
+ "study1_windows": 7200,
+ "excluded_segments": 0.09999999999999998,
+ "false_accusation_target": 0.05,
+ "h3": {
+  "students": 40,
+  "genuine": 0.22854511405162525,
+  "faked": 0.11944456261486729,
+  "difference": 0.10910055143675793,
+  "dz": 1.7176293384598065,
+  "t": 10.863241770922476,
+  "p_t": 2.330065402600644e-13,
+  "p_wilcoxon": 9.094947017729282e-12
+ },
+ "study2_students": 72,
+ "study2_windows": 15552,
+ "simulated": true
+}
