@@ -47,7 +47,15 @@ A part counts only if its proof matches its condition.
 
 One property of the method showed up even in simulation and will matter with real data. The detector threshold is set so that it accuses 5% of honest windows *in the students it was trained on*. On students it has never seen, it accuses 8–12%. People differ, so a threshold tuned on some students does not hold for the next. The analysis therefore always reports the false-accusation rate measured on held-out students, never the nominal 5%.
 
-## Run it
+## Install on Windows (no Python needed)
+
+1. Download **`DeceptiveGestures-Setup-….exe`** from the [Releases page](https://github.com/Zubair-DLCS/Deceptive-Gestures/releases/latest).
+2. Run it. If Windows says *"Windows protected your PC"* (the app is not code-signed), click **More info → Run anyway**. No admin rights needed.
+3. Click the **Deceptive Gestures** icon on your desktop. **Try a session without the camera** works straight away.
+
+The face model is included, so it works offline. Data and materials go to `Documents\DeceptiveGestures`: put the lecture clips in `materials\videos` and edit `materials\videos.json` before the first real session. A portable `.zip` is also on the Releases page.
+
+## Run from source
 
 ```bash
 pip install -r requirements.txt          # Python 3.10–3.12

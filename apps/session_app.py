@@ -33,7 +33,8 @@ def score_recall(typed: str, words: list[str]) -> int:
 
 
 class SessionApp:
-    def __init__(self, root: tk.Tk, args):
+    def __init__(self, root: tk.Misc, args):
+        """`root` may be the main Tk window or a Toplevel opened by the launcher."""
         self.root, self.args = root, args
         self.videos = json.load(open(args.videos, encoding="utf-8"))
         self.base = Path(args.videos).parent

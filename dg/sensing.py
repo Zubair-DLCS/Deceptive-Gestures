@@ -140,17 +140,27 @@ class SeatTracker:
         return out
 
 
+def model_file() -> Path:
+    """The face model: the copy bundled in the Windows app if there is one, else the
+    cached download (fetched once, 3.7 MB)."""
+    import sys
+    bundled = Path(getattr(sys, "_MEIPASS", "")) / "models" / "face_landmarker.task"
+    if getattr(sys, "_MEIPASS", None) and bundled.exists():
+        return bundled
+    if not MODEL_PATH.exists():
+        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
+        print(f"downloading face model to {MODEL_PATH} ...")
+        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
+    return MODEL_PATH
+
+
 def landmarker(num_faces: int = 1):
     import mediapipe as mp
     from mediapipe.tasks import python as mpt
     from mediapipe.tasks.python import vision
 
-    if not MODEL_PATH.exists():
-        MODEL_PATH.parent.mkdir(parents=True, exist_ok=True)
-        print(f"downloading face model to {MODEL_PATH} ...")
-        urllib.request.urlretrieve(MODEL_URL, MODEL_PATH)
     opts = vision.FaceLandmarkerOptions(
-        base_options=mpt.BaseOptions(model_asset_path=str(MODEL_PATH)),
+        base_options=mpt.BaseOptions(model_asset_path=str(model_file())),
         running_mode=vision.RunningMode.VIDEO, num_faces=num_faces,
         min_face_detection_confidence=0.4, output_facial_transformation_matrixes=True)
     return mp, vision.FaceLandmarker.create_from_options(opts)
