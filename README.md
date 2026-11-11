@@ -58,7 +58,7 @@ The face model is included, so it works offline. Data and materials go to `Docum
 ## Run from source
 
 ```bash
-pip install -r requirements.txt          # Python 3.10–3.12
+pip install -r requirements.txt          # Python 3.10–3.14
 python -m pytest -q tests                # 14 tests, about 15 s
 python scripts/run_analysis.py --simulate --quick    # 1-minute smoke run
 ```
