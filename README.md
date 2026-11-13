@@ -12,6 +12,23 @@ Webcam attention models assume students behave naturally. This project asks what
 | **RQ2 Detection** | Can acting be caught from *how* the face moves, or from being out of step with the lesson and with other viewers? |
 | **RQ3 Collateral harm** | Which honest students does a deception detector wrongly accuse: students with glasses, covered faces, poor light, back-row seats, or students who lower their gaze when listening? |
 
+## Why it matters for multimodal learning analytics and adaptive learning environments
+
+**Multimodal learning analytics.** The detectors combine several channels from one webcam and the lesson itself:
+- head pose, gaze, eye and mouth opening, and face position;
+- how the face moves over time: stillness, variability, onsets, blink regularity;
+- how it follows the lesson: reactions to slide changes, and synchrony with other viewers of the same video.
+
+**Adaptive learning environments.** An adaptive environment that reacts to webcam attention builds two assumptions in:
+1. the signal means what it seems to mean;
+2. reacting to it does no harm.
+
+This project tests both.
+- **RQ1 and RQ2:** once students know (or can see, in the dashboard block) what the system rewards, does the signal still mean attention? That is exactly the situation of a student who has learned what an adaptive system responds to.
+- **RQ3:** if a defence is added, which honest students does it single out, and so which students would the adaptive system wrongly treat as inattentive?
+
+The aim is not to argue against adaptive learning environments. It is to find out which multimodal signals are robust enough to adapt to, and for whom.
+
 ## Why this has not been done
 
 Engagement detectors from the webcam are well studied, and so is telling posed from genuine facial expressions: in one study people were at chance at telling faked pain from real pain, while a computer reached 85% from the timing of the face. Gaze synchrony between viewers has been proposed as an attention signal (Madsen & Parra, PNAS 2021). In a lab test with a 250 Hz eye tracker, [Bühler et al. (ETRA 2024)](https://arxiv.org/html/2404.00333v1) found the difference small, and it did not predict learning. No study has measured students **deliberately** faking attention against these models, checked the result against what the students actually did, or asked whom a defence harms. Proctoring attacks so far are software tricks (virtual cameras, hidden windows), not acted behaviour.
